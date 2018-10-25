@@ -93,7 +93,6 @@ final public class NMPickerViewController: UIView {
     }
     
     private func setupView() {
-        
         let keyWindow = UIApplication.shared.keyWindow
         let keyWindowBounds: CGRect = (keyWindow?.bounds)!
         self.frame = keyWindowBounds
@@ -129,7 +128,6 @@ final public class NMPickerViewController: UIView {
     }
     
     private func contentViewConfig() {
-        
         /* ContentView */
         contentView.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: 280)
         contentView.addSubview(titleLabel)
@@ -138,7 +136,7 @@ final public class NMPickerViewController: UIView {
         contentView.addSubview(selectButton)
         
         /* Title */
-        titleLabel.font = UIFont.systemFont(ofSize: 14.0, weight: 0.2)
+        titleLabel.font = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight(rawValue: 0.2))
         titleLabel.text = "Please choose a title and press 'Select' or 'Cancel'"
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.numberOfLines = 0
@@ -151,7 +149,7 @@ final public class NMPickerViewController: UIView {
         
         /* Cancel button */
         cancelButton.setTitle("Cancel",for: .normal)
-        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 16.0, weight: 0.3)
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight(rawValue: 0.3))
         cancelButton.backgroundColor = UIColor.white
         cancelButton.addTarget(self, action: #selector(cancelButtonPressed(_:)), for: .touchUpInside)
         
@@ -212,7 +210,6 @@ final public class NMPickerViewController: UIView {
     }
     
     private func configVerticalConstraintsOfHiddenViews() {
-        
         var verticalConstraints = NSLayoutConstraint.constraints(
             withVisualFormat: "V:[titleLabel(50)]-1-[pickerView(160)]-1-[cancelButton(50)]-16-|",
             options: [],
@@ -246,21 +243,14 @@ final public class NMPickerViewController: UIView {
     }
     
     public func show() {
-        
         UIView.animate(withDuration: 0.5, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            
             self.contentView.frame = CGRect(x: 0, y: self.frame.height - self.contentView.frame.height, width: self.frame.width, height: self.contentView.frame.height)
             self.backgroundView.alpha = 1.0
-            
-        }) { (Bool) -> Void in
-            
-        }
+        })
     }
     
     @objc private func dismiss() {
-        
         UIView.animate(withDuration: 0.6, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            
             self.contentView.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: self.contentView.frame.height)
             self.backgroundView.alpha = 0
             

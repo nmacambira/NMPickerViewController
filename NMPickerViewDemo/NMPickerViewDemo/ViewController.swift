@@ -38,7 +38,7 @@ class ViewController: UIViewController, NMPickerViewDelegate {
         //pickerViewController.selectButton.setTitle("Selecionar", for: .normal)
         
         /* [Optional] - Config blur effect */
-        pickerViewController.blurEffect = true
+        //pickerViewController.blurEffect = true
         //pickerViewController.blurEffectStyle = .dark
     }
     
